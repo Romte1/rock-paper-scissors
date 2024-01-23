@@ -25,7 +25,7 @@ let lose = 0;
 function playRound(playerSelection, computerSelection) {
     (playerSelection === computerSelection) ? (draw++, console.log("It's a TIE!")) : (playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors') || (playerSelection === 'scissors' && computerSelection === 'rock') ? (lose++, console.log(`You lost, ${computerSelection} beats ${playerSelection}!`)) : (win++, console.log(`You win, ${playerSelection} beats ${computerSelection}!`)); 
   }
-    return (`GG, we played 5 rounds, you won ${win} time(s), we got a draw ${draw} time(s) and i won ${lose} time(s)!`)  
+    console.log(`GG, we played 5 rounds, you won ${win} time(s), we got a draw ${draw} time(s) and i won ${lose} time(s)!`)  
 }
 
 
