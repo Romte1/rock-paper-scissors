@@ -2,12 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="liveResult">
+        <div class ="playerScore">    
+            <div class="player">Player</div>
+            <div class="wins">0</div>
+        </div>
+        <div class ="drawScore">    
+            <div class="totalDraws">Draws</div>
+            <div class="draws">0</div>
+        </div>
+        <div class ="computerScore">
+            <div class="computer">Loses</div>
+            <div class="loses">0</div>
+        </div>    
+    </div>
+    <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div class="gameAnnouncement">
+        Click on the buttons to play!
+    </div>
 </body>
 </html>

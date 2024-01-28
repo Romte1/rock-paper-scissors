@@ -1,3 +1,22 @@
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const wins = document.querySelector('.wins');
+const draws = document.querySelector('.draws');
+const loses = document.querySelector('.loses');
+const game = document.querySelector(('.gameAnnouncement'));
+
+rock.addEventListener('click', () => {
+    playRound('rock', getComputerChoice());
+});
+
+paper.addEventListener('click', () => {
+    playRound('paper', getComputerChoice());
+});
+
+scissors.addEventListener('click', () => {
+    playRound('scissors', getComputerChoice());
+});
 
 function getComputerChoice(){
     let choice = Math.floor(Math.random()*100)+1;
@@ -6,27 +25,30 @@ function getComputerChoice(){
     return choiceName;
 }
 
-function playerSelection (){
-let selection = prompt("Hello, choose between Rock, Paper or Scissors to play!");
-let lowCaseSelection = selection.toLowerCase();
+    let win = 0;
+    let draw = 0;
+    let lose = 0;
 
-return lowCaseSelection;
 
-}
-
-function game() {
-let win = 0;
-let draw = 0;
-let lose = 0;
-    for (i = 0; i<5;i++){
-        playRound(playerSelection(), getComputerChoice())
-    
-    }    
+   
 function playRound(playerSelection, computerSelection) {
-    (playerSelection === computerSelection) ? (draw++, console.log("It's a TIE!")) : (playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors') || (playerSelection === 'scissors' && computerSelection === 'rock') ? (lose++, console.log(`You lost, ${computerSelection} beats ${playerSelection}!`)) : (win++, console.log(`You win, ${playerSelection} beats ${computerSelection}!`)); 
+    (playerSelection === computerSelection) ? (draw++, game.textContent = ("It's a TIE!")) : (playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors') || (playerSelection === 'scissors' && computerSelection === 'rock') ? (lose++, game.textContent = (`You lost, ${computerSelection} beats ${playerSelection}!`)) : (win++, game.textContent = (`You win, ${playerSelection} beats ${computerSelection}!`));
+    wins.textContent = win;
+    draws.textContent = draw;
+    loses.textContent = lose;
+
+    declareWinner();
+
   }
-    console.log(`GG, we played 5 rounds, you won ${win} time(s), we got a draw ${draw} time(s) and i won ${lose} time(s)!`)  
+
+function declareWinner() {
+    if (win == 5 || lose == 5) {
+        (win==5) ? alert('You Win! GG...') : alert ('You lost! sadge...');
+        win = 0;
+        draw = 0;
+        lose = 0;
+        wins.textContent = win;
+        draws.textContent = draw;
+        loses.textContent = lose;
+    }
 }
-
-
-game();
